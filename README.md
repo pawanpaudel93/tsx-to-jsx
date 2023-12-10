@@ -32,7 +32,9 @@ bun install tsx-to-jsx
 
 ```Typescript
 import { convertTsxToJsx } from 'tsx-to-jsx'
-await convertTsxToJsx(sourceDirectory, destinationDirectory)
+const srcDirectory = "/Users/pawan/ts/ReactApp/src"
+const destDirectory = "/Users/pawan/js/ReactApp/src"
+await convertTsxToJsx(srcDirectory, dstDirectory)
 ```
 
 ## License
