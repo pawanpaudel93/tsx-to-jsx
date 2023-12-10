@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import process from 'node:process'
 import { existsSync } from 'node:fs'
 import * as p from '@clack/prompts'
