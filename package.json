@@ -34,7 +34,8 @@
     }
   },
   "bin": {
-    "tsx-to-jsx": "./dist/cli.js"
+    "tsx-to-jsx": "./dist/cli.js",
+    "tsx2jsx": "./dist/cli.js"
   },
   "files": [
     "dist"
