@@ -8,18 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@clack/core':
-        specifier: ^0.3.3
-        version: 0.3.3
-      '@clack/prompts':
-        specifier: ^0.7.0
-        version: 0.7.0
       chalk:
         specifier: ^5.3.0
         version: 5.3.0
-      commander:
-        specifier: ^11.1.0
-        version: 11.1.0
       execa:
         specifier: ^8.0.1
         version: 8.0.1
@@ -69,9 +60,6 @@ importers:
       tsup:
         specifier: ^8.0.1
         version: 8.0.1(typescript@5.3.3)
-      tsx:
-        specifier: ^4.6.2
-        version: 4.6.2
       vite:
         specifier: ^5.0.0
         version: 5.0.0(@types/node@20.9.1)
@@ -172,23 +160,6 @@ packages:
       chalk: 2.4.2
       js-tokens: 4.0.0
     dev: true
-
-  /@clack/core@0.3.3:
-    resolution: {integrity: sha512-5ZGyb75BUBjlll6eOa1m/IZBxwk91dooBWhPSL67sWcLS0zt9SnswRL0l26TVdBhb0wnWORRxUn//uH6n4z7+A==}
-    dependencies:
-      picocolors: 1.0.0
-      sisteransi: 1.0.5
-    dev: false
-
-  /@clack/prompts@0.7.0:
-    resolution: {integrity: sha512-0MhX9/B4iL6Re04jPrttDm+BsP8y6mS7byuv0BvXgdXhbV5PdlsHt55dvNsuBCPZ7xq1oTAOOuotR9NFbQyMSA==}
-    dependencies:
-      '@clack/core': 0.3.3
-      picocolors: 1.0.0
-      sisteransi: 1.0.5
-    dev: false
-    bundledDependencies:
-      - is-unicode-supported
 
   /@es-joy/jsdoccomment@0.41.0:
     resolution: {integrity: sha512-aKUhyn1QI5Ksbqcr3fFJj16p99QdjUxXAEuFst1Z47DRyoiMwivIH9MV/ARcJOCXVjPfjITciej8ZD2O/6qUmw==}
@@ -1436,6 +1407,7 @@ packages:
   /commander@11.1.0:
     resolution: {integrity: sha512-yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==}
     engines: {node: '>=16'}
+    dev: true
 
   /commander@4.1.1:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
@@ -2988,6 +2960,7 @@ packages:
 
   /picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
+    dev: true
 
   /picomatch@2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
@@ -3273,6 +3246,7 @@ packages:
 
   /sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
+    dev: true
 
   /slash@3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}

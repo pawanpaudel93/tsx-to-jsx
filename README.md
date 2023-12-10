@@ -6,7 +6,7 @@
 [![JSDocs][jsdocs-src]][jsdocs-href]
 [![License][license-src]][license-href]
 
-`tsx-to-jsx` is a Node.js package and CLI tool that converts TypeScript (.tsx) files to JavaScript (.jsx) files from a specified source directory, saving the result in a destination directory.
+`tsx-to-jsx` is a Node.js package that converts TypeScript (ts/tsx) files to JavaScript (js/jsx) files from a specified source directory, saving the result in a destination directory.
 
 ## Installation
 
@@ -33,14 +33,6 @@ bun install tsx-to-jsx
 ```Typescript
 import { convertTsxToJsx } from 'tsx-to-jsx'
 await convertTsxToJsx(sourceDirectory, destinationDirectory)
-```
-
-### CLI Usage
-
-Replace `<source-directory>` with the path to your TypeScript source files and `<destination-directory>` with the desired path for the compiled JavaScript files.
-
-```bash
-tsx-to-jsx -s <source-directory> -d <destination-directory>
 ```
 
 ## License

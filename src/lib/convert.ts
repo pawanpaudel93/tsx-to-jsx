@@ -65,7 +65,7 @@ async function getFilePaths(srcDir: string, pattern: string): Promise<string[]> 
 }
 
 /**
- * Converts TypeScript (.tsx) files to JavaScript (.jsx) files in a source directory.
+ * Converts TypeScript (ts/tsx) files to JavaScript (js/jsx) files in a source directory.
  * Removes and adds comments as specified, compiles TypeScript to JavaScript, and runs Prettier.
  * @param {string} srcDir - Source directory path containing TypeScript files.
  * @param {string} dstDir - Destination directory path for the compiled JavaScript files.
