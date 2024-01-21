@@ -1,9 +1,13 @@
 import path from 'node:path'
 import fsPromises from 'node:fs/promises'
+import { createRequire } from 'node:module'
 import fs from 'node:fs'
 import { glob } from 'glob'
 import { execa } from 'execa'
+import * as prettier from 'prettier'
 import { logger } from './utils'
+
+const require = createRequire(import.meta.url)
 
 /**
  * The text to be replaced in the file content.
@@ -64,6 +68,19 @@ async function getFilePaths(srcDir: string, pattern: string): Promise<string[]> 
   })
 }
 
+async function preetify(filePaths: string[]) {
+  try {
+    const promises = filePaths.map(async (filePath) => {
+      const text = await fsPromises.readFile(filePath, 'utf8')
+      const options = await prettier.resolveConfig(filePath)
+      const formatted = await prettier.format(text, options ?? { parser: 'babel' })
+      await fsPromises.writeFile(filePath, formatted)
+    })
+    await Promise.all(promises)
+  }
+  catch (err) {}
+}
+
 /**
  * Converts TypeScript (ts/tsx) files to JavaScript (js/jsx) files in a source directory.
  * Removes and adds comments as specified, compiles TypeScript to JavaScript, and runs Prettier.
@@ -80,20 +97,25 @@ export async function convertTsxToJsx(srcDir: string, dstDir: string): Promise<v
 
     await addComments(tsxFiles)
 
-    // Compile tsx files to jsx
-    await execa('npx', `tsc --jsx preserve -t esnext --outDir ${dstDir} --noEmit false`.split(' '), {
-      cwd: srcDir,
-      stdout: 'ignore',
-    })
+    const srcFiles = await glob(path.join(srcDir, '/**/*.{ts,tsx}'))
+
+    try {
+      if (srcFiles.length > 0) {
+        const tscPath = require.resolve('typescript/lib/tsc')
+        const command = ['node', tscPath, '--jsx', 'preserve', '-t', 'esnext', '--outDir', dstDir, '--noEmit', 'false', ...srcFiles]
+        await execa(command[0], command.slice(1), { stdout: 'ignore', stderr: 'ignore' })
+      }
+    }
+    catch (error) {
+      // logger.error(error)
+    }
 
     const jsxFiles = await getFilePaths(dstDir, `/**/*.{js,jsx}`)
 
     await removeComments([...tsxFiles, ...jsxFiles])
 
     // Run prettier on javascript files
-    await execa('npx', `prettier --write ${dstDir}`.split(' '), {
-      stdout: 'ignore',
-    })
+    await preetify(jsxFiles)
   }
   catch (error: any) {
     logger.error(`${error.message}`)
