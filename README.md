@@ -37,6 +37,9 @@ const destDirectory = "/Users/pawan/js/ReactApp/src"
 await convertTsxToJsx(srcDirectory, dstDirectory)
 ```
 
+## Related
+- [tsx-to-jsx-cli](https://github.com/pawanpaudel93/tsx-to-jsx-cli)
+
 ## License
 
 [MIT](./LICENSE) License © 2023-PRESENT [Pawan Paudel](https://github.com/pawanpaudel93)
